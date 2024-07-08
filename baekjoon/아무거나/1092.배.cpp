@@ -35,24 +35,24 @@ using namespace std;
     O(M * N) => O(50 * 10,000) => O(500,000) => 0.02
 */
 
-int crain[51];
+int crane[51];
 
-vector<int> boxs;
+vector<int> boxes;
 
 int main()
 {
     cin.tie(0);
     ios::sync_with_stdio(0);
 
-    int crainCount;
-    cin >> crainCount;
+    int craneCount;
+    cin >> craneCount;
 
-    for (int i = 0; i < crainCount; ++i)
+    for (int i = 0; i < craneCount; ++i)
     {
-        cin >> crain[i];
+        cin >> crane[i];
     }
 
-    sort(crain, crain + crainCount, greater<>());
+    sort(crane, crane + craneCount, greater<>());
 
     int boxCount;
     cin >> boxCount;
@@ -61,28 +61,28 @@ int main()
     {
         int tmp;
         cin >> tmp;
-        boxs.push_back(tmp);
+        boxes.push_back(tmp);
     }
 
-    sort(boxs.begin(), boxs.end(), greater<>());
+    sort(boxes.begin(), boxes.end(), greater<>());
 
     int answer = 0;
 
-    if (crain[0] < boxs[0])
+    if (crane[0] < boxes[0])
     {
         answer = -1;
     }
     else
     {
-        while (!boxs.empty())
+        while (!boxes.empty())
         {
-            for (int i = 0; i < crainCount; ++i)
+            for (int i = 0; i < craneCount; ++i)
             {
-                for (int j = 0; j < boxs.size(); ++j)
+                for (int j = 0; j < boxes.size(); ++j)
                 {
-                    if (crain[i] >= boxs[j])
+                    if (crane[i] >= boxes[j])
                     {
-                        boxs.erase(boxs.begin() + j);
+                        boxes.erase(boxes.begin() + j);
                         break;
                     }
                 }
